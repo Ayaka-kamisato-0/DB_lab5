@@ -2,7 +2,7 @@ package utils;
 
 public enum DatabaseType {
     MYSQL("mysql", "com.mysql.cj.jdbc.Driver", new MysqlInitializer()),
-    // TODO: to be updated
+    
     POSTGRES("postgresql", "org.postgresql.Driver", new MysqlInitializer()),
     SQLSERVER("sqlserver", "com.microsoft.sqlserver.jdbc.SQLServerDriver", new SqlServerInitializer());
 
