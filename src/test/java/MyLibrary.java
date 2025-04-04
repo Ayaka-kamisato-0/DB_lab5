@@ -32,8 +32,7 @@ public class MyLibrary {
         return borrows.size();
     }
 
-    public static MyLibrary createLibrary(LibraryManagementSystem library, int nBooks,
-                                          int nCards, int nBorrows) {
+    public static MyLibrary createLibrary(LibraryManagementSystem library, int nBooks,int nCards, int nBorrows) {
         /* create books */
         Set<Book> bookSet = new HashSet<>();
         while (bookSet.size() < nBooks) {

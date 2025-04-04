@@ -178,9 +178,10 @@ public class LibraryTest {
             Assert.assertTrue(library.storeBook(book).ok);
             bookIds.add(book.getBookId());
         }
+        //Assert.assertTrue();
         Assert.assertEquals(bookSet.size(), bookIds.size());
         /* corner case: invalid book id */
-        Assert.assertFalse(library.incBookStock(-1, 6).ok);
+        Assert.assertFalse(library.incBookStock(0, 6).ok);
         int k = bookSet.size() + 1;
         while (bookIds.contains(k)) {
             ++k;
@@ -206,10 +207,12 @@ public class LibraryTest {
             }
         }
         /* use query interface to check correctness */
+
         bookList.sort(Comparator.comparingInt(Book::getBookId));
         ApiResult queryResult = library.queryBook(new BookQueryConditions());
         Assert.assertTrue(queryResult.ok);
         BookQueryResults selectedResults = (BookQueryResults) queryResult.payload;
+        //Assert.assertTrue(selectedResults.getResults().get(0).getBookId()==0);
         for (int i = 0; i < bookList.size(); i++) {
             Book o1 = bookList.get(i);
             Book o2 = selectedResults.getResults().get(i);
